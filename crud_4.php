@@ -1,17 +1,7 @@
 <?php
 //name //email //password
 
-function dbconnect()
-{
-    $hostname="localhost";
-    $username="root";
-    $userpassword="";
-    $dbname="blooddonor";
-
-    $conn=mysqli_connect($hostname,$username,$userpassword,$dbname);
-
-    return $conn;
-}
+require_once('db_connection.php');
 //addadmin
 function addadmin($data)
 {

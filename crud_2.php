@@ -1,19 +1,9 @@
 <?php
 //name //email //password
 
-function dbconnect()
-{
-    $hostname="localhost";
-    $username="root";
-    $userpassword="";
-    $dbname="blooddonor";
-
-    $conn=mysqli_connect($hostname,$username,$userpassword,$dbname);
-
-    return $conn;
-}
+require_once('db_connection.php');
 //addadmin
-function adddonor($data)
+function adduser($data)
 {
     $name = $data['name'];
     $email = $data['email'];
@@ -23,16 +13,14 @@ function adddonor($data)
 
     $conn = dbconnect();
 
-    $sql="select email from donate where email = '$email'";
-    $rs=mysqli_query($conn,$sql)or die(mysqli_error($conn));
-
-    if(mysqli_num_rows($rs)> 0)
+   
+    if(!$conn)
     {
         echo "allready registered";
     }
     else
     {
-        $sql="insert into donate(name,email,password,blood,address)values('$name','$email','$password','$blood','$address')";
+        $sql="insert into donation(name,email,password,blood,address)values('$name','$email','$password','$blood','$address')";
 
         $responce=mysqli_query($conn,$sql);
 
@@ -40,7 +28,7 @@ function adddonor($data)
     }
 }
 // update admin
-function updatedonor($data)
+function updateuser($data)
 {
     $name = $data['name'];
     $email = $data['email'];
@@ -51,7 +39,7 @@ function updatedonor($data)
 
     $conn = dbconnect();
  
-    $sql="update donate set name = '$name', email = '$email', password = '$password', blood = '$blood', address = '$address' where email = '$email'";
+    $sql="update donation set name = '$name', email = '$email', password = '$password', blood = '$blood', address = '$address' where email = '$email'";
 
     $responce=mysqli_query($conn,$sql);
 
@@ -59,48 +47,48 @@ function updatedonor($data)
     }
 //deleteuser
 
-//getalldonor
-    function getalldonor()
+//getalladmin
+    function getalluser()
     {
         $conn = dbconnect();
 
-        $sql = "select *from donate";
+        $sql = "select *from donation";
 
         $responce=mysqli_query($conn,$sql);
 
         return $responce;
     }
 //getuserbyid
-        function getdonorbyid($email)
+        function getuserbyid($email)
         {
             $conn = dbconnect();
 
-            $sql = "select *from donate where email = '$email'";
+            $sql = "select *from donation where email = '$email'";
 
             $responce=mysqli_query($conn,$sql);
 
             return $responce;
         }
 
-        function deletedonorbyid($email)
+        function deleteuserbyid($email)
         {
             $conn = dbconnect();
 
-            $sql = "delete from donate where email = '$email'";
+            $sql = "delete from donation where email = '$email'";
 
             $responce=mysqli_query($conn,$sql);
 
             return $responce;
         }
 //loginadmin
-        function logindonor($data)
+        function loginuser($data)
         {
         $email = $data['email'];
         $password = $data['password'];
 
          $conn = dbConnect();
 
-         $sql = "select *from donate where email = '$email' and password = '$password' ";
+         $sql = "select *from donation where email = '$email' and password = '$password' ";
 
             $responce=mysqli_query($conn,$sql);
 
