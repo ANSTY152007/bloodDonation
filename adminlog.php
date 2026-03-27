@@ -134,7 +134,7 @@
                             let timerInterval;
                             Swal.fire({
                               title: "Login success",
-                              html: "atomaticaally redirected to Admin panel",
+                              html: "automatically redirected to Admin panel",
                               timer: 2000,
                               timerProgressBar: true,
                               didOpen: () => {

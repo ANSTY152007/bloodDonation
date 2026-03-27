@@ -144,7 +144,7 @@ ob_start();
                               let timerInterval;
                               Swal.fire({
                                 title: "Login success",
-                                html: "atomaticaally redirected to request page",
+                                html: "automatically redirected to request page",
                                 timer: 2000,
                                 timerProgressBar: true,
                                 didOpen: () => {
@@ -172,7 +172,7 @@ ob_start();
                               let timerInterval;
                               Swal.fire({
                                 title: "Login success",
-                                html: "atomaticaally redirected to dashboard",
+                                html: "automatically redirected to dashboard",
                                 timer: 2000,
                                 timerProgressBar: true,
                                 didOpen: () => {
@@ -201,7 +201,7 @@ ob_start();
                            }
                         } 
                     ?>
-     <h6 style="color:white">New User?<a href="userreg.php">cerate account</a></h6>
+     <h6 style="color:white">New User?<a href="userreg.php" style="cursor: pointer;">create account</a></h6>
     </div>
 </div>
 </div>

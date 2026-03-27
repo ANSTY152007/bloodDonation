@@ -159,7 +159,7 @@ ob_start();
                         let timerInterval;
                         Swal.fire({
                           title: "Login success",
-                          html: "atomaticaally redirected to login page",
+                          html: "automatically redirected to login page",
                           timer: 2000,
                           timerProgressBar: true,
                           didOpen: () => {

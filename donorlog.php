@@ -133,7 +133,7 @@
                             let timerInterval;
                             Swal.fire({
                               title: "Login success",
-                              html: "atomaticaally redirected to dashboard",
+                              html: "automatically redirected to dashboard",
                               timer: 2000,
                               timerProgressBar: true,
                               didOpen: () => {
@@ -163,7 +163,7 @@
                            }
                         } 
                     ?>
-      <h6 style="color:white">New Donor?<a href="donorreg.php">cerate account</a></h6>
+      <h6 style="color:white">New Donor?<a href="donorreg.php" style="cursor: pointer;">create account</a></h6>
     </div>
 </div>
 </div>
