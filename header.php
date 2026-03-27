@@ -1,4 +1,9 @@
-<?php ob_start(); ?>
+<?php 
+ob_start(); 
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!-- Injecting Tailwind CSS + Google Fonts for modern styling -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -36,16 +41,13 @@
                 <a href="adminlog.php" class="text-gray-300 hover:text-blood-500 transition-colors duration-200 font-medium">Admin</a>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="showrequest.php" class="text-gray-300 hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border border-transparent hover:border-gray-700 bg-gray-800/50 hover:bg-gray-800">
-                    <i class="fa-solid fa-magnifying-glass mr-2 text-sm text-blood-500"></i>Search Needs
-                </a>
-                
-                <?php
-                    if(session_status() === PHP_SESSION_NONE) {
-                        session_start();
-                    }
+                <!-- Action Buttons -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="showrequest.php" class="text-gray-300 hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border border-transparent hover:border-gray-700 bg-gray-800/50 hover:bg-gray-800">
+                        <i class="fa-solid fa-magnifying-glass mr-2 text-sm text-blood-500"></i>Search Needs
+                    </a>
+                    
+                    <?php
                     if(isset($_SESSION['email'])) {
                         echo '
                         <a href="logout.php" class="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-white px-5 py-2.5 rounded-lg shadow-lg shadow-red-500/30 transition-all transform hover:-translate-y-0.5 font-medium flex items-center gap-2">
